@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CM_Assignment1</string>
+    <string name="btnActivity">Animal Details</string>
+    <string name="lblOwner">Owner: </string>
+    <string name="lblName">Name: </string>
+    <string name="lblAge">Age: </string>
 </resources>
