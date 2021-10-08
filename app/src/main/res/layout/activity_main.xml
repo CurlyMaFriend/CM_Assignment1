@@ -29,15 +29,15 @@
     <androidx.gridlayout.widget.GridLayout
         android:id="@+id/gridLayout"
         android:layout_width="271dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="30dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
         app:columnCount="2"
-        app:rowCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="3">
 
 
         <TextView
@@ -96,11 +96,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
         android:layout_marginBottom="15dp"
-        android:text="@string/btnActivity"
         android:onClick="goToActivity"
+        android:text="@string/btnActivity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
