@@ -3,12 +3,14 @@ package pedro.gouveia.cm_assignment1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -23,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_NUMBER = "com.example.application.example.EXTRA_NUMBER";
     private ArrayList<Animal> animalsArray;
     private Spinner spinner;
-    TextView txtName, txtOwner, txtAge;
+    private TextView txtName, txtOwner, txtAge;
+    private ImageView imgAnimal;
 
 
     @Override
@@ -46,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
                     txtName = findViewById(R.id.txtName);
                     txtOwner = findViewById(R.id.txtOwner);
                     txtAge = findViewById(R.id.txtAge);
+                    imgAnimal = findViewById(R.id.imgAnimal);
                     Animal selectedAnimal = (Animal)spin.getSelectedItem();
                     Log.d("test", selectedAnimal.toString());
                     txtName.setText(selectedAnimal.getName());
                     txtOwner.setText(selectedAnimal.getOwner());
                     txtAge.setText(selectedAnimal.getAge()+"");
+
+                    imgAnimal.setImageResource(getResources().getIdentifier(selectedAnimal.getName(), "drawable", getPackageName()));
                 }
                 public void onNothingSelected(AdapterView<?> parent) {} // empty
             });
