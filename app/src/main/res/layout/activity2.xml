@@ -6,26 +6,15 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/activity2ButtonAlterar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="81dp"
-        android:text="Atualizar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/activity2ButtonVoltar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-    <Button
         android:id="@+id/activity2ButtonVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="81dp"
-        android:onClick="goToActivity"
-        android:text="Voltar"
+        android:onClick="returnMain"
+        android:text="@string/btnReturn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/activity2ButtonAlterar"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <LinearLayout
@@ -51,7 +40,7 @@
                 android:layout_height="63dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Owner :" />
+                android:text="@string/lblOwner"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +69,7 @@
                 android:layout_height="63dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Name :" />
+                android:text="@string/lblName"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -108,7 +97,7 @@
                 android:layout_height="63dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Age :" />
+                android:text="@string/lblAge"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

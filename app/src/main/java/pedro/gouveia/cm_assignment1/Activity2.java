@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class Activity2 extends AppCompatActivity {
@@ -28,5 +29,10 @@ public class Activity2 extends AppCompatActivity {
         activity2Nome.setText(textNome);
         activity2Idade.setText(""+numberIdade);
 
+    }
+
+    public void returnMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

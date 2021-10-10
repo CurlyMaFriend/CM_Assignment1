@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="animals">
+        <item>horse/John Doe/13/</item>
+        <item>monkey/John Doe/4/</item>
+        <item>turtle/Peter Pan/100/</item>
+    </array>
+</resources>
