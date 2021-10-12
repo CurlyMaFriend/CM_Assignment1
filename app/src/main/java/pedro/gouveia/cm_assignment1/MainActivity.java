@@ -1,7 +1,12 @@
 package pedro.gouveia.cm_assignment1;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -27,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinner;
     private TextView txtName, txtOwner, txtAge;
     private ImageView imgAnimal;
-
+    private ActivityResultLauncher<Intent> launcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,30 +67,36 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        launcher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent data = result.getData();
+                            Bundle dataBundle = data.getExtras();
+
+                            String name = dataBundle.get("name").toString();
+
+                            String owner = dataBundle.get("owner").toString();
+
+                            String age = dataBundle.get("age").toString();
+                            Log.d("teste", name);
+                            Log.d("teste", owner);
+                            Log.d("teste", age);
+                        }
+                    }
+                }
+        );
+
     }
 
     public void goToActivity(View view) {
 
-        TextView txtName, txtOwner, txtAge;
-        Spinner spinner;
-        String conteudoNome, conteudoOwner;
-        int conteudoAge;
-
-        txtName = (TextView) findViewById(R.id.txtName);
-        txtOwner = (TextView) findViewById(R.id.txtOwner);
-        txtAge = (TextView) findViewById(R.id.txtAge);
-
-        //conteudoNome = txtName.getText().toString();
-        //conteudoOwner = txtOwner.getText().toString();
-        //conteudoAge = Integer.parseInt(txtAge.getText().toString());
-
         Intent intent = new Intent(this, Activity2.class);
 
-        //intent.putExtra(EXTRA_TEXT1, conteudoOwner);
-        //intent.putExtra(EXTRA_TEXT2, conteudoNome);
-        //intent.putExtra(EXTRA_NUMBER, conteudoAge);
-
-        startActivity(intent);
+        launcher.launch(intent);
+        //startActivity(intent);
     }
 
     private void getAnimals(){
