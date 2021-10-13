@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtName, txtOwner, txtAge;
     private ImageView imgAnimal;
     private ActivityResultLauncher<Intent> launcher;
+    private Animal selectedAnimal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +56,13 @@ public class MainActivity extends AppCompatActivity {
                     txtOwner = findViewById(R.id.txtOwner);
                     txtAge = findViewById(R.id.txtAge);
                     imgAnimal = findViewById(R.id.imgAnimal);
-                    Animal selectedAnimal = (Animal)spin.getSelectedItem();
+                    selectedAnimal = (Animal)spin.getSelectedItem();
                     Log.d("test", selectedAnimal.toString());
                     txtName.setText(selectedAnimal.getName());
                     txtOwner.setText(selectedAnimal.getOwner());
                     txtAge.setText(selectedAnimal.getAge()+"");
 
-                    imgAnimal.setImageResource(getResources().getIdentifier(selectedAnimal.getName(), "drawable", getPackageName()));
+                    imgAnimal.setImageResource(getResources().getIdentifier(selectedAnimal.getFixedName(), "drawable", getPackageName()));
                 }
                 public void onNothingSelected(AdapterView<?> parent) {} // empty
             });
@@ -81,9 +82,15 @@ public class MainActivity extends AppCompatActivity {
                             String owner = dataBundle.get("owner").toString();
 
                             String age = dataBundle.get("age").toString();
+
                             txtName.setText(name);
                             txtOwner.setText(owner);
                             txtAge.setText(Integer.parseInt(age)+"");
+
+                            selectedAnimal.setName(name);
+                            selectedAnimal.setOwner(owner);
+                            selectedAnimal.setAge(Integer.parseInt(age));
+
                         }
                     }
                 }
@@ -107,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         for (String strAnimal : animals ) {
             String[] stringArray = strAnimal.split("/");
 
-            Animal animal = new Animal(stringArray[0], stringArray[1], Integer.parseInt(stringArray[2]));
+            Animal animal = new Animal(stringArray[0], stringArray[1], Integer.parseInt(stringArray[2]), stringArray[3]);
 
             this.animalsArray.add(animal);
         }

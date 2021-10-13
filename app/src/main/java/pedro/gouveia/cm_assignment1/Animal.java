@@ -1,14 +1,15 @@
 package pedro.gouveia.cm_assignment1;
 public class Animal {
-    private String owner, name;
+    private String owner, name, fixedName;
     private int age;
 
     public Animal() {  }
 
-    public Animal(String name, String owner, int age) {
+    public Animal(String name, String owner, int age, String fixedName) {
         this.owner = owner;
         this.name = name;
         this.age = age;
+        this.fixedName = fixedName;
     }
 
     public String getOwner(){
@@ -23,6 +24,8 @@ public class Animal {
         return this.age;
     }
 
+    public String getFixedName() { return this.fixedName; }
+
     public void setOwner(String owner){
         this.owner = owner;
     }
@@ -34,6 +37,8 @@ public class Animal {
     public void setAge(int age){
         this.age = age;
     }
+
+    public void setFixedName(int identify) { this.fixedName = fixedName; }
 
     public String toString(){
         return this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
