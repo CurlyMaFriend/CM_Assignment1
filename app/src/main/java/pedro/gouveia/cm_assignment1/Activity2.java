@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -34,10 +35,12 @@ public class Activity2 extends AppCompatActivity {
     }
 
     public void returnMain(View view) {
+
         Intent intent = new Intent(String.valueOf(this));
         intent.putExtra("name", activity2Nome.getText());
         intent.putExtra("owner", activity2Dono.getText());
         intent.putExtra("age", activity2Idade.getText());
+        Log.d("Fields", "first age: " + activity2Idade.getText());
         setResult(RESULT_OK, intent);
        // startActivity(intent);
         finish();

@@ -83,14 +83,18 @@ public class MainActivity extends AppCompatActivity {
 
                             String age = dataBundle.get("age").toString();
 
+                            if(age.equals("")){
+                                selectedAnimal.setAge(0);
+                                txtAge.setText(0+"");
+                            } else {
+                                selectedAnimal.setAge(Integer.parseInt(age));
+                            }
+
                             txtName.setText(name);
                             txtOwner.setText(owner);
-                            txtAge.setText(Integer.parseInt(age)+"");
 
                             selectedAnimal.setName(name);
                             selectedAnimal.setOwner(owner);
-                            selectedAnimal.setAge(Integer.parseInt(age));
-
                         }
                     }
                 }
@@ -103,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Activity2.class);
 
         launcher.launch(intent);
-        //startActivity(intent);
     }
 
     private void getAnimals(){
