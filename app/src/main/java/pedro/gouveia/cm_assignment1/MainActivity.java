@@ -81,9 +81,9 @@ public class MainActivity extends AppCompatActivity {
                             String owner = dataBundle.get("owner").toString();
 
                             String age = dataBundle.get("age").toString();
-                            Log.d("teste", name);
-                            Log.d("teste", owner);
-                            Log.d("teste", age);
+                            txtName.setText(name);
+                            txtOwner.setText(owner);
+                            txtAge.setText(Integer.parseInt(age)+"");
                         }
                     }
                 }
