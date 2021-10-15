@@ -8,18 +8,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -57,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                     txtAge = findViewById(R.id.txtAge);
                     imgAnimal = findViewById(R.id.imgAnimal);
                     selectedAnimal = (Animal)spin.getSelectedItem();
-                    Log.d("test", selectedAnimal.toString());
                     txtName.setText(selectedAnimal.getName());
                     txtOwner.setText(selectedAnimal.getOwner());
                     txtAge.setText(selectedAnimal.getAge()+"");
@@ -87,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                                 selectedAnimal.setAge(0);
                                 txtAge.setText(0+"");
                             } else {
+                                txtAge.setText(age);
                                 selectedAnimal.setAge(Integer.parseInt(age));
                             }
 

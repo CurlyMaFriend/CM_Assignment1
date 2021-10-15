@@ -41,6 +41,6 @@ public class Animal {
     public void setFixedName(int identify) { this.fixedName = fixedName; }
 
     public String toString(){
-        return this.name.substring(0, 1).toUpperCase() + this.name.substring(1);
+        return this.fixedName.substring(0, 1).toUpperCase() + this.fixedName.substring(1);
     }
 }
