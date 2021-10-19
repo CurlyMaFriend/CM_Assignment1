@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 public void onItemSelected(AdapterView<?> spin, View v, int i, long id) {
+
                     txtName = findViewById(R.id.txtName);
                     txtOwner = findViewById(R.id.txtOwner);
                     txtAge = findViewById(R.id.txtAge);
@@ -55,6 +56,27 @@ public class MainActivity extends AppCompatActivity {
                     txtName.setText(selectedAnimal.getName());
                     txtOwner.setText(selectedAnimal.getOwner());
                     txtAge.setText(selectedAnimal.getAge()+"");
+
+                    if(selectedAnimal.getAge() == 0){
+                        txtAge.setVisibility(View.INVISIBLE);
+                    } else {
+                        txtAge.setVisibility(View.VISIBLE);
+                        txtAge.setText(selectedAnimal.getAge() + "");
+                    }
+
+                    if(selectedAnimal.getOwner().equals("")){
+                        txtOwner.setVisibility(View.INVISIBLE);
+                    } else {
+                        txtOwner.setVisibility(View.VISIBLE);
+                        txtOwner.setText(selectedAnimal.getOwner());
+                    }
+
+                    if(selectedAnimal.getName().equals("")){
+                        txtName.setVisibility(View.INVISIBLE);
+                    } else {
+                        txtName.setVisibility(View.VISIBLE);
+                        txtName.setText(selectedAnimal.getName());
+                    }
 
                     imgAnimal.setImageResource(getResources().getIdentifier(selectedAnimal.getFixedName(), "drawable", getPackageName()));
                 }
@@ -79,15 +101,26 @@ public class MainActivity extends AppCompatActivity {
 
                             if(age.equals("")){
                                 selectedAnimal.setAge(0);
-                                txtAge.setText(0+"");
+                                txtAge.setVisibility(View.INVISIBLE);
                             } else {
+                                txtAge.setVisibility(View.VISIBLE);
                                 txtAge.setText(age);
                                 selectedAnimal.setAge(Integer.parseInt(age));
                             }
 
-                            txtName.setText(name);
-                            txtOwner.setText(owner);
+                            if(owner.equals("")){
+                                txtOwner.setVisibility(View.INVISIBLE);
+                            } else {
+                                txtOwner.setVisibility(View.VISIBLE);
+                                txtOwner.setText(owner);
+                            }
 
+                            if(name.equals("")){
+                                txtName.setVisibility(View.INVISIBLE);
+                            } else {
+                                txtName.setVisibility(View.VISIBLE);
+                                txtName.setText(name);
+                            }
                             selectedAnimal.setName(name);
                             selectedAnimal.setOwner(owner);
                         }
